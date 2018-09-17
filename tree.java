@@ -3,7 +3,7 @@ class tree
 	node root;
 	prop[] P;
 	int p_count;
-	static int idx=0;
+	static int idx;
 	public tree()
 	{
 		root=null;
@@ -14,27 +14,26 @@ class tree
 	{
 		return root==null;
 	}
-	public node create(node r)
-	{
-		root=r;
-		return r;
-	}
 	public node connect(node n1, node n2)
 	{
 		n1.addchild(n2);
 		n2.addparent(n1);
-		if(root==n2)
-			root=n1;
 		return n1;
 	}
 	public node maketree(String exp)
+	{
+		idx=1;
+		root=subtree(exp);
+		return root;
+	}
+	private node subtree(String exp)
 	{
 		node alpha1, alpha2, alpha, op;
 
 		if(exp.charAt(idx)=='(')
 		{
 			idx++;
-			alpha1=maketree(exp);
+			alpha1=subtree(exp);
 		}
 		else if(exp.charAt(idx)=='-')
 		{
@@ -43,7 +42,7 @@ class tree
 			if(exp.charAt(idx)=='(')
 			{
 				idx++;
-				alpha=maketree(exp);
+				alpha=subtree(exp);
 			}
 			else
 			{
@@ -51,10 +50,6 @@ class tree
 			}
 			connect(neg, alpha);
 			idx++;
-			if(isEmpty())
-			{
-				create(neg);
-			}
 			return neg;
 		}
 		else 
@@ -66,7 +61,7 @@ class tree
 		if(exp.charAt(idx)=='(')
 		{
 			idx++;
-			alpha2=maketree(exp);
+			alpha2=subtree(exp);
 		}
 		else 
 		{
@@ -75,10 +70,6 @@ class tree
 		connect(op, alpha1);
 		connect(op, alpha2);
 		idx++;
-		if(isEmpty())
-		{
-			create(op);
-		}
 		return op;
 	}
 }
