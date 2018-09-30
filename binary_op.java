@@ -1,3 +1,4 @@
+//Binary operators
 class binary_op extends node
 {
 	public binary_op(char op)
@@ -7,5 +8,4 @@ class binary_op extends node
 		child=new node[2];
 		parent=null;
 	}
-
 }

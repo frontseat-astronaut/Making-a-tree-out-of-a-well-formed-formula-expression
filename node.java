@@ -1,3 +1,4 @@
+//Represents nodes in a tree
 class node
 {
 	protected node child[];

@@ -1,3 +1,4 @@
+//Proposition
 class prop extends node
 {
 	private boolean val;
