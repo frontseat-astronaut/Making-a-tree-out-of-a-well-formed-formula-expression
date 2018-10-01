@@ -12,8 +12,9 @@ class main
 		tree T=new tree();
 		node r=T.maketree(exp);
 
-		System.out.println(r.name); //prints out the root name
-
 		T.PrintPropositions();
+
+		valuation V=new valuation(T.P, T.p_count);
+		V.Display();	
 	}
 }

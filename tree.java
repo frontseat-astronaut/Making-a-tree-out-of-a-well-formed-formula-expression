@@ -4,13 +4,13 @@ class tree
 {
 	node root; 
 	static int idx; // index of the expression String, the maketree function is currently at 
-	HashSet P; // Set of propositions
+	HashSet<Character> P; // Set of propositions
 	int p_count; // count of propositions
 	public tree()
 	{
 		root=null;
 		p_count=0;
-		P= new HashSet();
+		P= new HashSet<Character>();
 	}
 	public boolean isEmpty() // Check if the tree is empty
 	{

@@ -1,29 +1,26 @@
-import java.util.HashMap; 
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 public class valuation
 {
-	private HashMap<String, Boolean> V;
+	private HashMap<Character, Boolean> V;
 
-	valuation(String[] P, int pno)
+	valuation(HashSet<Character> P, int pno)
 	{
-		V=new HashMap<String, Boolean>();
-		for (int i=0;i<pno;++i) 
+		V=new HashMap<Character, Boolean>();
+		Scanner sc=new Scanner (System.in);
+		char v;
+		for(Character p: P)
 		{
-			V.put(P[i],false);
+			System.out.print("Enter valuation for "+p+" (T/F): ");
+			v= sc.next().charAt(0); 
+			if(v=='T')
+				V.put(p,true);
+			else
+				V.put(p,false);
 		}
 	}
 
-	public void defineVal(String[] P, int pno)
+	void Display()
 	{
-		Scanner sc=new Scanner (System.in);
-		char v;
-		for(int i=0; i<pno; ++i)
-		{
-			System.out.print("Enter valuation for "+P[i]+" (T/F): ");
-			v= sc.next().charAt(0); 
-			if(v=='T')
-				V.replace(P[i],true);
-		}
+		System.out.println(V);
 	}
 }
