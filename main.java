@@ -10,11 +10,12 @@ class main
 		String exp=sc.nextLine();
 
 		tree T=new tree();
-		node r=T.maketree(exp);
 
 		T.PrintPropositions();
 
 		valuation V=new valuation(T.P, T.p_count);
-		V.Display();	
+		V.Display();
+
+		System.out.print(T.Satisfy(T.root, V));
 	}
 }

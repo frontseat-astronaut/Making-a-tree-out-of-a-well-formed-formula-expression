@@ -1,7 +1,7 @@
 import java.util.*;
 public class valuation
 {
-	private HashMap<Character, Boolean> V;
+	HashMap<Character, Boolean> V;
 
 	valuation(HashSet<Character> P, int pno)
 	{

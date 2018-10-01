@@ -1,10 +1,10 @@
 //Represents nodes in a tree
 class node
 {
-	protected node child[];
-	protected int noc;
-	protected node parent;
-	char name;
+	public node child[];
+	public int noc;
+	public node parent;
+	public Character name;
 
 	void addchild(node c)
 	{

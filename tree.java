@@ -88,4 +88,27 @@ class tree
 		System.out.println("Propostions used: ");
 		System.out.println(P); 
 	}
+	public boolean Satisfy(node NODE, valuation v)
+	{
+		if(NODE.noc==0) //Proposition
+		{
+			return v.V.get(NODE.name);
+		}
+		else if(NODE.noc==1) //NOT operator
+		{
+			return !(Satisfy(NODE.child[0], v));
+		}
+		else
+		{
+			if(NODE.name=='^') //Conjuction
+			{
+				return (Satisfy(NODE.child[0], v)&Satisfy(NODE.child[1], v));
+			}
+			else if (NODE.name=='v') //Disjunction
+			{
+				return (Satisfy(NODE.child[0], v)|Satisfy(NODE.child[1], v));
+			}
+		}
+		return false;
+	}
 }
