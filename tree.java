@@ -1,13 +1,16 @@
 //The formula tree
+import java.util.*;
 class tree
 {
 	node root; 
-	int p_count; // Count of the propositions present in the tree
 	static int idx; // index of the expression String, the maketree function is currently at 
+	HashSet P; // Set of propositions
+	int p_count; // count of propositions
 	public tree()
 	{
 		root=null;
 		p_count=0;
+		P= new HashSet();
 	}
 	public boolean isEmpty() // Check if the tree is empty
 	{
@@ -22,6 +25,8 @@ class tree
 	public node maketree(String exp) // exp for expression
 	{
 		idx=1;
+		p_count=0;
+		P.clear();
 		root=subtree(exp);
 		return root;
 	}
@@ -48,6 +53,7 @@ class tree
 			{
 				alpha=new prop(exp.charAt(idx++));
 				p_count++;
+				P.add(exp.charAt(idx-1));
 			}
 			connect(neg, alpha);
 			idx++;
@@ -57,6 +63,7 @@ class tree
 		{
 			alpha1=new prop(exp.charAt(idx++));
 			p_count++;
+			P.add(exp.charAt(idx-1));
 		}
 		op=new binary_op(exp.charAt(idx));
 		idx++;
@@ -68,11 +75,17 @@ class tree
 		else 
 		{
 			alpha2=new prop(exp.charAt(idx++));
+			P.add(exp.charAt(idx-1));
 			p_count++;
 		}
 		connect(op, alpha1);
 		connect(op, alpha2);
 		idx++;
 		return op;
+	}
+	public void PrintPropositions()
+	{
+		System.out.println("Propostions used: ");
+		System.out.println(P); 
 	}
 }
