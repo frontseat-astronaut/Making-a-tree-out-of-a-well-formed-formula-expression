@@ -108,6 +108,25 @@ class tree
 			{
 				return (Satisfy(NODE.child[0], v)|Satisfy(NODE.child[1], v));
 			}
+			else if (NODE.name=='>') //Implies
+			{
+				boolean left=Satisfy(NODE.child[0], v)
+				boolean right=Satisfy(NODE.child[1], v);
+				return ((!left)|right);
+			}
+			else if (NODE.name=='=') //Biconditional
+			{
+				boolean left=Satisfy(NODE.child[0], v)
+				boolean right=Satisfy(NODE.child[1], v);
+				return (left==right);
+			}
+			else if (NODE.name=='+') //XOR
+			{
+				boolean left=Satisfy(NODE.child[0], v)
+				boolean right=Satisfy(NODE.child[1], v);
+				return (left^right);
+			}
+
 		}
 		return false;
 	}
