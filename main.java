@@ -10,6 +10,7 @@ class main
 		String exp=sc.nextLine();
 
 		tree T=new tree();
+		T.maketree(exp);
 
 		T.PrintPropositions();
 

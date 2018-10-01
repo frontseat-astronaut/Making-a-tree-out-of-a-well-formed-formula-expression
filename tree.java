@@ -110,19 +110,19 @@ class tree
 			}
 			else if (NODE.name=='>') //Implies
 			{
-				boolean left=Satisfy(NODE.child[0], v)
+				boolean left=Satisfy(NODE.child[0], v);
 				boolean right=Satisfy(NODE.child[1], v);
 				return ((!left)|right);
 			}
-			else if (NODE.name=='=') //Biconditional
+			else if (NODE.name=='=') //Double implies
 			{
-				boolean left=Satisfy(NODE.child[0], v)
+				boolean left=Satisfy(NODE.child[0], v);
 				boolean right=Satisfy(NODE.child[1], v);
 				return (left==right);
 			}
 			else if (NODE.name=='+') //XOR
 			{
-				boolean left=Satisfy(NODE.child[0], v)
+				boolean left=Satisfy(NODE.child[0], v);
 				boolean right=Satisfy(NODE.child[1], v);
 				return (left^right);
 			}
