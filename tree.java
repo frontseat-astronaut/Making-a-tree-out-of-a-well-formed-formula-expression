@@ -130,4 +130,30 @@ class tree
 		}
 		return false;
 	}
+	public Boolean Satisfiability()
+	{
+		valuation v=new valuation(P, false);
+		Character[] vectP=new Character[p_count+1];
+		int k=0;
+		for(Character p:P)
+		{
+			vectP[k++]=p;
+		}
+		return CheckAllVal(v, vectP, 0);
+	}
+	private Boolean CheckAllVal(valuation v, Character vectP[], int i)
+	{
+		if(i==p_count)
+		{
+			return Satisfy(root, v);
+		}
+		Boolean issat;
+		v.V.put(vectP[i], false);
+		issat=CheckAllVal(v,vectP,i+1);
+		if(issat)
+			return true;
+		v.V.put(vectP[i],true);
+		issat=CheckAllVal(v,vectP,i+1);
+		return issat;
+	}
 }

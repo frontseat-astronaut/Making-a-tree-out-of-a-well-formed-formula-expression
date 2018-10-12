@@ -19,6 +19,15 @@ public class valuation
 		}
 	}
 
+	valuation(HashSet<Character>P, Boolean b)
+	{
+		V=new HashMap<Character, Boolean>();
+		for(Character p:P)
+		{
+			V.put(p,b);
+		}
+	}
+
 	void Display()
 	{
 		System.out.println(V);

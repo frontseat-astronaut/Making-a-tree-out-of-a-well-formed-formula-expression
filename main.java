@@ -14,9 +14,13 @@ class main
 
 		T.PrintPropositions();
 
-		valuation V=new valuation(T.P, T.p_count);
-		V.Display();
-
-		System.out.print(T.Satisfy(T.root, V));
+		if(T.Satisfiability())
+		{
+			System.out.println("Satisfiable!");
+		}
+		else
+		{
+			System.out.println("Not Satisfiable!");
+		}
 	}
 }
