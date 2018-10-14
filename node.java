@@ -15,5 +15,4 @@ class node
 	{
 		parent=p;
 	}
-
 }

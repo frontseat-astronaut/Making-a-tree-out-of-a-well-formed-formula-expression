@@ -14,13 +14,6 @@ class main
 
 		T.PrintPropositions();
 
-		if(T.Satisfiability())
-		{
-			System.out.println("Satisfiable!");
-		}
-		else
-		{
-			System.out.println("Not Satisfiable!");
-		}
+		Tableaux tab=new Tableaux(T.root);
 	}
 }
